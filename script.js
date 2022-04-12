@@ -35,7 +35,7 @@ closeIcon.addEventListener("click", () => {
 
 function showNotes() {
   document.querySelectorAll(".note").forEach((note) => note.remove());
-  notes.forEach((note) => {
+  notes.forEach((note, index) => {
     let liTag = `
          <li class="note">
             <div class="details">
@@ -47,8 +47,8 @@ function showNotes() {
                 <div class="settings">
                     <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>
                     <ul class="menu">
-                        <li><i class="uil uil-pen"></i>Edit</li>
-                        <li onclick="deleteNote()"><i class="uil uil-trash"></i>Delete</li>
+                        <li onclick="updateNote(${index} , '${note.title}' , '${note.description}')"><i class="uil uil-pen"></i>Edit</li>
+                        <li onclick="deleteNote(${index})"><i class="uil uil-trash"></i>Delete</li>
                     </ul>
                 </div>
             </div>
@@ -66,6 +66,18 @@ function showMenu(elem) {
       elem.parentElement.classList.remove("show");
     }
   });
+}
+
+function deleteNote(noteId) {
+  notes.splice(noteId, 1); // * removing selected note from array/tasks
+  // * saving updated notes to localstorage
+  localStorage.setItem("notes", JSON.stringify(notes));
+  showNotes();
+}
+
+function updateNote(noteId, title, desc) {
+  addBox.click();
+  console.log(noteId, title, desc);
 }
 
 addBtn.addEventListener("click", (e) => {
