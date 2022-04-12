@@ -25,6 +25,7 @@ const months = [
 const notes = JSON.parse(localStorage.getItem("notes") || "[]");
 
 addBox.addEventListener("click", () => {
+  titleTag.focus();
   popupBox.classList.add("show");
 });
 
@@ -80,6 +81,8 @@ function deleteNote(noteId) {
 
 function updateNote(noteId, title, desc) {
   addBox.click();
+  titleTag.value = title;
+  descTag.value = desc;
   addBtn.innerText = "Update Note";
   popupTitle.innerText = "Update a Note";
   console.log(noteId, title, desc);
