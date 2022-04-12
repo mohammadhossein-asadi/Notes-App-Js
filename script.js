@@ -20,6 +20,9 @@ const months = [
   "December",
 ];
 
+// * getting localstorage notes if exist and parsing them to js object else parsing an empty array to notes
+const notes = JSON.parse(localStorage.getItem("notes") || "[]");
+
 addBox.addEventListener("click", () => {
   popupBox.classList.add("show");
 });
@@ -27,6 +30,30 @@ addBox.addEventListener("click", () => {
 closeIcon.addEventListener("click", () => {
   popupBox.classList.remove("show");
 });
+
+function showNotes() {
+  notes.forEach((note) => {
+    let liTag = `
+         <li class="note">
+            <div class="details">
+                <p>This is a title</p>
+                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum obcaecati dignissimos reiciendis</span>
+            </div>
+            <div class="bottom-content">
+                <span>April 3, 2022</span>
+                <div class="settings">
+                    <i class="uil uil-ellipsis-h"></i>
+                    <ul class="menu">
+                        <li><i class="uil uil-pen"></i>Edit</li>
+                        <li><i class="uil uil-trash"></i>Delete</li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+    `;
+  });
+}
+showNotes();
 
 addBtn.addEventListener("click", (e) => {
   e.preventDefault();
@@ -46,6 +73,9 @@ addBtn.addEventListener("click", (e) => {
       date: `${month} ${day} ${year}`,
     };
 
-    console.log(noteInfo);
+    notes.push(noteInfo); // * adding new note to notes
+    // * saving notes to localstorage
+    localStorage.setItem("notes", JSON.stringify(notes));
+    closeIcon.click();
   }
 });
