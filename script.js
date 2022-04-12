@@ -36,11 +36,11 @@ function showNotes() {
     let liTag = `
          <li class="note">
             <div class="details">
-                <p>This is a title</p>
-                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum obcaecati dignissimos reiciendis</span>
+                <p>${note.title}</p>
+                <span>${note.description}</span>
             </div>
             <div class="bottom-content">
-                <span>April 3, 2022</span>
+                <span>${note.date}</span>
                 <div class="settings">
                     <i class="uil uil-ellipsis-h"></i>
                     <ul class="menu">
@@ -51,6 +51,7 @@ function showNotes() {
             </div>
         </li>
     `;
+    addBox.insertAdjacentHTML("afterend", liTag);
   });
 }
 showNotes();
