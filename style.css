@@ -153,14 +153,15 @@ header {
     transform: translate(-50%, -50%);
 }
 
+.popup-box,
+.popup-box .popup {
+    opacity: 0;
+    pointer-events: none;
+}
 .popup .content {
     width: calc(100% - 15px);
     background: #fff;
     border-radius: 5px;
-}
-
-.popup-box , .popup-box .popup{
-    opacity: 0;
 }
 
 .popup .content header {
