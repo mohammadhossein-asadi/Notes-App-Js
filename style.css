@@ -25,3 +25,39 @@ body {
     border-radius: 5px;
     padding: 15px 20px 20px;
 }
+
+.add-box,
+.icon {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.add-box .icon {
+    color: #88abff;
+    font-size: 40px;
+    height: 78px;
+    width: 78px;
+    border-radius: 50%;
+    border: 2px dashed #88abff;
+}
+
+.add-box p {
+    color: #88abff;
+    font-weight: 500;
+    margin-top: 20px;
+}
+
+.note p {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.note span {
+    display: block;
+    margin-top: 5px;
+    color: #575757;
+    font-size: 16px;
+}
+
