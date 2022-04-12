@@ -27,11 +27,17 @@ body {
 }
 
 .add-box,
-.icon {
+.icon,
+.bottom-content {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+}
+
+.add-box {
     flex-direction: column;
     justify-content: center;
+    cursor: pointer;
 }
 
 .add-box .icon {
@@ -41,12 +47,19 @@ body {
     width: 78px;
     border-radius: 50%;
     border: 2px dashed #88abff;
+    justify-content: center;
 }
 
 .add-box p {
     color: #88abff;
     font-weight: 500;
     margin-top: 20px;
+}
+
+.wrapper .note {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .note p {
@@ -57,7 +70,31 @@ body {
 .note span {
     display: block;
     margin-top: 5px;
-    color: #575757;
+    color: #414040;
     font-size: 16px;
 }
 
+.note .bottom-content {
+    padding-top: 10px;
+    border-top: 1px solid #ccc;
+}
+
+.bottom-content span {
+    color: #6d6d6d;
+    font-size: 14px;
+}
+
+.bottom-content .setting {
+    color: #6d6d6d;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.setting .menu {
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+}
+
+.setting .menu li {
+    height: 25px;
+    border-radius: 0;
+}
