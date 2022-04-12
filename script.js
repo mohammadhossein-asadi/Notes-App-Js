@@ -31,6 +31,8 @@ addBox.addEventListener("click", () => {
 closeIcon.addEventListener("click", () => {
   titleTag.value = "";
   descTag.value = "";
+  addBtn.innerText = "Add Note";
+  popupTitle.innerText = "Add a new Note";
   popupBox.classList.remove("show");
 });
 
@@ -79,6 +81,7 @@ function deleteNote(noteId) {
 function updateNote(noteId, title, desc) {
   addBox.click();
   addBtn.innerText = "Update Note";
+  popupTitle.innerText = "Update a Note";
   console.log(noteId, title, desc);
 }
 
