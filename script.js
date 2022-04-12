@@ -23,6 +23,8 @@ const months = [
 
 // * getting localstorage notes if exist and parsing them to js object else parsing an empty array to notes
 const notes = JSON.parse(localStorage.getItem("notes") || "[]");
+let isUpdate = false,
+  updateId;
 
 addBox.addEventListener("click", () => {
   titleTag.focus();
@@ -80,6 +82,8 @@ function deleteNote(noteId) {
 }
 
 function updateNote(noteId, title, desc) {
+  isUpdate = true;
+  updateId = noteId;
   addBox.click();
   titleTag.value = title;
   descTag.value = desc;
@@ -106,7 +110,11 @@ addBtn.addEventListener("click", (e) => {
       date: `${month} ${day} ${year}`,
     };
 
-    notes.push(noteInfo); // * adding new note to notes
+    if (!isUpdate) {
+      notes.push(noteInfo); // * adding new note to notes
+    } else {
+      notes[updateId];
+    }
     // * saving notes to localstorage
     localStorage.setItem("notes", JSON.stringify(notes));
     closeIcon.click();
