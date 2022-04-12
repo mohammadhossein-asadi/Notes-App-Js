@@ -110,7 +110,7 @@ header {
     transition: transform 0.2s ease;
 }
 
-.settings:hover .menu {
+.settings.show .menu {
     transform: scale(1);
 }
 

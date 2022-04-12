@@ -59,7 +59,7 @@ function showNotes() {
 }
 
 function showMenu(elem) {
-  console.log(elem);
+  elem.parentElement.classList.add("show");
 }
 
 addBtn.addEventListener("click", (e) => {
