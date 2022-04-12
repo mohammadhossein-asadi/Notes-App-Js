@@ -77,6 +77,7 @@ function deleteNote(noteId) {
 
 function updateNote(noteId, title, desc) {
   addBox.click();
+  addBtn.innerText = "Update Note";
   console.log(noteId, title, desc);
 }
 
