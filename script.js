@@ -48,7 +48,7 @@ function showNotes() {
                     <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>
                     <ul class="menu">
                         <li><i class="uil uil-pen"></i>Edit</li>
-                        <li><i class="uil uil-trash"></i>Delete</li>
+                        <li onclick="deleteNote()"><i class="uil uil-trash"></i>Delete</li>
                     </ul>
                 </div>
             </div>
@@ -60,6 +60,12 @@ function showNotes() {
 
 function showMenu(elem) {
   elem.parentElement.classList.add("show");
+  document.addEventListener("click", (e) => {
+    // * removing show class from the settings menu on  document click
+    if (e.target.tagName != "I" || e.target != elem) {
+      elem.parentElement.classList.remove("show");
+    }
+  });
 }
 
 addBtn.addEventListener("click", (e) => {
